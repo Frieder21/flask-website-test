@@ -1,0 +1,41 @@
+@font-face {
+    font-family: B612MonoRegular;
+    src: url(B612Mono-Regular.ttf);
+}
+@font-face {
+    font-family: B612MonoBold;
+    src: url(B612Mono-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: B612MonoItalic;
+    src: url(B612Mono-Italic.ttf);
+    font-style: italic;
+}
+@font-face {
+    font-family: B612MonoBoldItalic;
+    src: url(B612Mono-BoldItalic.ttf);
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-famaly: RobotoMono;
+    src: url(RobotoMono-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: AmaticSCRegular;
+    src: url(AmaticSC-Regular.ttf);
+}
+@font-face {
+    font-family: AmaticSCBold;
+    src: url(AmaticSC-Bold.ttf);
+    font-weight: bold;
+}
+@font-face {
+    font-family: IndieFlower;
+    src: url(IndieFlower-Regular.ttf);
+}
+@font-face {
+    font-family: MontserratAlternatesRegular;
+    src: url(MontserratAlternates-SemiBold.ttf);
+}

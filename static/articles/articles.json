@@ -1,0 +1,26 @@
+[
+  {
+    "name": "while alive",
+    "url": "02.01.2023-while alive.md",
+    "number": 1,
+    "id": "02012023-while-alive",
+    "date": "2023-01-02",
+    "type": "bigger_project"
+  },
+  {
+    "name": "about me",
+    "url": "about me.md",
+    "number": 2,
+    "id": "03012023-about-me",
+    "date": "2023-01-03",
+    "type": "main page"
+  },
+  {
+    "name": "bigger projects",
+    "url": "bigger-projects.md",
+    "number": 3,
+    "id": "04012023-bigger-projects",
+    "date": "2023-01-04",
+    "type": "main page"
+  }
+]

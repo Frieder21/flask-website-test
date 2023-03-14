@@ -1,0 +1,227 @@
+body {
+    margin: 0;
+    background-color: var(--my-lighter-grey);
+}
+nav {
+    background-color: var(--my-dark-grey);
+    color: var(--my-hard-white);
+    font-size: 2.4vh;
+    font-weight: 300;
+    padding: 1vh 10vw;
+}
+
+#navbar #items {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.333em;
+    margin: 0 1em;
+}
+
+#navbar a {
+    font-family: B612MonoRegular, sans-serif;
+    text-decoration: none;
+    color: var(--my-hard-white);
+
+}
+#navbar img {
+    padding: 0.5em;
+    height: 1em;
+    width: 1em;
+    margin-bottom: -0.2em;
+    background-color: var(--my-light-grey);
+    -webkit-border-radius: 0.4em;
+    border-radius: 0.4em;
+}
+#navbar h1 {
+    padding-left: 0.5vw;
+    margin: 0;
+    font-size: 4vh;
+}
+#navbar h2 {
+    margin: 0;
+    padding-left: 2vw;
+    color: var(--my-pink);
+    font-size: 6vh;
+}
+
+#footer {
+    transition: 0.2s;
+    background-color: var(--my-dark-grey);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3vh;
+}
+
+#footer #updownarrow {
+    transition: 0.2s;
+    transform: translate(-50%, 0) scaleY(-1);
+    height: 2vh;
+    width: 2vh;
+    position: absolute;
+    left: 50%;
+    top: 0.5vh;
+}
+
+#footer #copyright {
+    transition: 0.2s;
+    font-family: B612MonoRegular, sans-serif;
+    color: var(--my-lighter-grey);
+    height: 1.5vh;
+    position: absolute;
+    left: 1vw;
+    bottom: 0;
+    transform: translate(0, 50%)
+}
+
+#footer #itemtext {
+    transition: 0.1s;
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 33%;
+    transform: translate(-50%, -50%);
+}
+
+#footer #itemicon {
+    transition: 0.1s;
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 67%;
+    transform: translate(-50%, -50%);
+}
+
+#footer #itemicon img {
+    padding: 0;
+    height: 0;
+    width: 0;
+}
+
+#footer #itemtext a {
+    font-family: B612MonoRegular, sans-serif;
+    color: var(--my-soft-white);
+    text-decoration: none;
+    padding: 20px;
+}
+
+#footer:hover #updownarrow {
+    transform: translate(-50%, 0) scaleY(1);
+}
+
+#footer:hover {
+    height: 20vh;
+}
+
+#footer:hover #copyright {
+    transform: translate(-50%, 0);
+    left: 50%;
+    color: var(--my-soft-white);
+}
+
+#footer:hover #itemtext {
+    display: block;
+}
+
+#footer:hover #itemicon {
+    display: block;
+}
+#footer:hover #itemicon img {
+    padding: 20px;
+    height: 2vh;
+    width: 2vh;
+}
+
+/* Set the background color to the dark grey variable */
+div#content {
+    width: auto;
+    margin-top: 6vh;
+}
+div#content>div {
+    padding: 2vh 1vw;
+    background-color: var(--my-dark-pink);
+    border: 4px solid var(--my-darker-pink);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 8vw 20vh;
+}
+
+/* Set the text color to the soft white variable */
+div#content * {
+    color: var(--my-soft-white);
+    font-family: MontserratAlternatesRegular, sans-serif;
+}
+
+/* Set the link color to the soft white variable */
+div#content a {
+    color: var(--my-soft-white);
+}
+
+/* Set the link hover color to the hard white variable */
+div#content a:hover {
+    color: var(--my-hard-white);
+}
+
+/* Set the table cell background color to the light grey variable */
+div#content table {
+    background-color: var(--my-light-grey);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+
+
+}
+div#content table th{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+
+}
+/* Set the table cell border color to the lighter grey variable */
+div#content table td {
+    border-color: var(--my-lighter-grey);
+}
+
+/* Set the blockquote background color to the light grey variable */
+div#content blockquote {
+    background-color: var(--my-light-grey);
+}
+
+/* Set the blockquote text color to the soft white variable */
+div#content blockquote * {
+    color: var(--my-soft-white);
+}
+
+/* Set the blockquote border color to the lighter grey variable */
+div#content blockquote {
+    border-color: var(--my-lighter-grey);
+}
+
+/* Set the code background color to the light grey variable */
+div#content pre code {
+    background-color: var(--my-light-grey);
+}
+
+/* Set the code text color to the soft white variable */
+div#content pre code * {
+    color: var(--my-soft-white);
+}
+
+/* Set the code border color to the lighter grey variable */
+div#content pre {
+    border-color: var(--my-lighter-grey);
+}
+
+div#content h1 {
+    font-family: B612MonoRegular, sans-serif;
+    font-size: 6vh;
+    font-weight: 300;
+    margin: 0;
+    padding: 0;
+}
+
+/* Rounds Images by 2%*/
+div#content img {
+    border: 0 solid;
+}
