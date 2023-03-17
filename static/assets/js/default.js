@@ -42,8 +42,8 @@ function fetchAndRenderArticle(nameOrNumberOrId) {
 
 // Call the fetchAndRenderArticle() function when the page is completely loaded
 window.onload = function() {
+    fetchAndRenderArticle(3);
     fetchAndRenderArticle(1);
-    fetchAndRenderArticle(articleName);
-    fetchAndRenderArticle(articleName);
+    fetchAndRenderArticle(2);
     fetchAndRenderArticle(articleName);
 };

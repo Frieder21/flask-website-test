@@ -1,4 +1,4 @@
-#About Me
+# About Me
 
 My name is Frieda, and I'm from Germany. I'm currently in school, and I love programming and art. I'm not exactly sure what inspired me to get into programming, but I've always enjoyed it. In the future, I hope to become better at both programming and drawing.
 
