@@ -1,6 +1,6 @@
 # net political news push
 
-![NTFY.jpg](./static/assets/images/NTFY.jpg =*x200em)
+![NTFY.jpg](../static/assets/images/NTFY.jpg =*x200em)
 
 ## What is this?
 
@@ -16,3 +16,5 @@ npnp uses [ntfy](https://ntfy.sh). ntfy is an open source mobile pushup notifier
 1. you need to install [ntfy](https://ntfy.sh)
 2. open the application
 3. go to "+" and use the topic name: "[Netz-Politik-News-Push](https://ntfy.sh/Netz-Politik-News-Push)".
+
+## Where can I find the source code?
