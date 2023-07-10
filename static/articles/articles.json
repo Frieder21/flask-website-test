@@ -30,5 +30,13 @@
     "id": "07072023-npnp",
     "date": "2023-07-07",
     "type": "article"
+  },
+  {
+   "name": "game of life",
+    "url": "game_of_life.md",
+    "number": 5,
+    "id": "10072023-game-of-life",
+    "date": "2023-07-10",
+    "type": "bigger_project"
   }
 ]
