@@ -38,5 +38,13 @@
     "id": "10072023-game-of-life",
     "date": "2023-07-10",
     "type": "bigger_project"
+  },
+  {
+    "name": "calendar",
+    "url": "calendar-webapp.md",
+    "number": 6,
+    "id": "11072023-calendar",
+    "date": "2023-07-11",
+    "type": "bigger_project"
   }
 ]

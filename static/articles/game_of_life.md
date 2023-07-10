@@ -30,7 +30,7 @@ You can use the python library to create your own game of life. You can also use
 Download the python library from [here](https://github.com/Frieder21/game_of_life):
     
 ```bash
-git clone https://github.com/Frieder21/game_of_life
+git clone https://github.com/Frieder21/game_of_life.git
 ```
 
 Then you need to copy the library into your python project:
