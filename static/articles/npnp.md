@@ -18,3 +18,5 @@ npnp uses [ntfy](https://ntfy.sh). ntfy is an open source mobile pushup notifier
 3. go to "+" and use the topic name: "[Netz-Politik-News-Push](https://ntfy.sh/Netz-Politik-News-Push)".
 
 ## Where can I find the source code?
+
+You can find the source code on [GitHub](https://github.com/Frieder21/Netz-Politk-Push).
