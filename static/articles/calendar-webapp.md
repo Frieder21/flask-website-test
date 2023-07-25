@@ -1,5 +1,7 @@
 # calendar-webapp
 
+![calendar.png](../static/assets/images/calendar.png =*x300em)
+
 ## Description
 
 A simple calendar webapp written in python using the flask framework. I created this webapp to learn how to use the flask framework. My teacher gave me the idea to create a calendar. He thought about a very small calendar that doesn't have to look good. I thought about a calendar that looks good and is easy to use.
