@@ -46,5 +46,13 @@
     "id": "11072023-calendar",
     "date": "2023-07-11",
     "type": "bigger_project"
+  },
+  {
+    "name": "webserver",
+    "url": "raspberry_web_server.md",
+    "number": 7,
+    "id": "27072023-webserver",
+    "date": "2023-07-27",
+    "type": "bigger_project"
   }
 ]

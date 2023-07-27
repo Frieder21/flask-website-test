@@ -43,7 +43,7 @@ function fetchAndRenderArticle(nameOrNumberOrId) {
 // Call the fetchAndRenderArticle() function when the page is completely loaded
 window.onload = function() {
     fetchAndRenderArticle(3);
-    fetchAndRenderArticle(1);
+    fetchAndRenderArticle(7);
     fetchAndRenderArticle(2);
-    fetchAndRenderArticle(articleName);
+    fetchAndRenderArticle(1);
 };
