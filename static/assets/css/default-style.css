@@ -149,17 +149,36 @@ nav {
 }
 
 /* Set the background color to the dark grey variable */
-div#content {
-    width: auto;
-    margin-top: 6vh;
+@media screen and (max-width: 800px) {
+    div#content {
+        width: auto;
+        margin-top: 6vw;
+    }
 }
+@media screen and (min-width: 801px) {
+    div#content {
+        width: auto;
+        margin: 6vh;
+    }
+}
+
+
 div#content>div {
     padding: 2vh 1vw;
     background-color: var(--my-dark-pink);
     border: 4px solid var(--my-darker-pink);
     -webkit-border-radius: 10px;
     border-radius: 10px;
-    margin: 0 8vw 20vh;
+}
+@media screen and (max-width: 800px) {
+    div#content>div {
+        margin: 0 2vw 5vh;
+    }
+}
+@media screen and (min-width: 801px) {
+    div#content>div {
+        margin: 0 8vw 20vh;
+    }
 }
 
 /* Set the text color to the soft white variable */
