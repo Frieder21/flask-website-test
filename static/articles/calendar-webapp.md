@@ -1,6 +1,6 @@
 # calendar-webapp
 
-![calendar.png](../static/assets/images/calendar.png)
+[![calendar.png](../static/assets/images/calendar.png)](../static/assets/images/calendar.png)
 
 ## Description
 
