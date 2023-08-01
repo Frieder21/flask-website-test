@@ -277,7 +277,7 @@ div#content img {
     border: 0 solid;
     max-width: 80vw;
     object-fit: contain;
-    max-height: 30em;
+    max-height: 33vh;
 }
 
 code {
