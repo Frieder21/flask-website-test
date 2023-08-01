@@ -1,6 +1,6 @@
 # game of life
 
-![gol_gui.jpg](../static/assets/images/gol_gui.jpg =*x300em)
+![gol_gui.jpg](../static/assets/images/gol_gui.jpg)
 
 ## Introduction
 
@@ -23,7 +23,7 @@ I created a python library that can be used to create a game of life. I also cre
 
 You can use the python library to create your own game of life. You can also use the terminal frontend to see the game of life.
 
-![gol_code.jpg](../static/assets/images/gol_code.jpg =*x300em)
+![gol_code.jpg](../static/assets/images/gol_code.jpg)
 
 ### First you need to install the python library in  your python project:
 
@@ -60,7 +60,7 @@ gol.print_Game_of_life_to_terminal(game)
 
 the output should look like this:
 
-![gol_output.jpg](../static/assets/images/gol_output.jpg =*x300em)
+![gol_output.jpg](../static/assets/images/gol_output.jpg)
 
 ## Where can I find the source code?
 

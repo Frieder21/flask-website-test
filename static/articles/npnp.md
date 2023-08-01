@@ -1,6 +1,6 @@
 # net political news push
 
-![NTFY.jpg](../static/assets/images/NTFY.jpg =*x300em)
+![NTFY.jpg](../static/assets/images/NTFY.jpg)
 
 ## What is this?
 

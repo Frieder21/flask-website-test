@@ -191,16 +191,14 @@ div#content table th{
     padding-bottom: 0.5em;
 }
 
-
-}
 /* Set the table cell border color to the lighter grey variable */
 div#content table td {
     border-color: var(--my-lighter-grey);
 }
 
-/* Set the blockquote background color to the light grey variable */
+/* Set the blockquote background color to the dark pink variable */
 div#content blockquote {
-    background-color: var(--my-light-grey);
+    background-color: var(--my-dark-pink);
 }
 
 /* Set the blockquote text color to the soft white variable */
@@ -236,11 +234,31 @@ div#content h1 {
     padding: 0;
 }
 
+@media screen and (max-width: 800px) {
+    div#content h1 {
+        font-size: 6vw;
+    }
+    div#content h2 {
+        font-size: 5vw;
+    }
+}
+
+@media screen and (min-width: 801px) {
+    div#content h1 {
+        font-size: 6vh;
+    }
+    div#content h2 {
+        font-size: 5vh;
+    }
+}
+
+
 /* Rounds Images by 2%*/
 div#content img {
     border: 0 solid;
     max-width: 80vw;
     object-fit: contain;
+    max-height: 30em;
 }
 
 code {

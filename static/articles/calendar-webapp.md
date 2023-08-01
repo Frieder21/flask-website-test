@@ -1,6 +1,6 @@
 # calendar-webapp
 
-![calendar.png](../static/assets/images/calendar.png =*x300em)
+![calendar.png](../static/assets/images/calendar.png)
 
 ## Description
 
