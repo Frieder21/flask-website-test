@@ -35,14 +35,29 @@ nav {
 #navbar h1 {
     padding-left: 0.5vw;
     margin: 0;
-    font-size: 4vh;
 }
 #navbar h2 {
     margin: 0;
     padding-left: 2vw;
     color: var(--my-pink);
-    font-size: 6vh;
 }
+@media screen and (max-width: 800px) {
+    #navbar h1 {
+        font-size: 4vw;
+    }
+    #navbar h2 {
+        font-size: 6vw;
+    }
+}
+@media screen and (min-width: 801px) {
+    #navbar h1 {
+        font-size: 4vh;
+    }
+    #navbar h2 {
+        font-size: 6vh;
+    }
+}
+
 
 #footer {
     transition: 0.2s;
@@ -224,6 +239,8 @@ div#content h1 {
 /* Rounds Images by 2%*/
 div#content img {
     border: 0 solid;
+    max-width: 80vw;
+    object-fit: contain;
 }
 
 code {
@@ -233,6 +250,10 @@ code {
     background-color: var(--my-light-grey);
     -webkit-border-radius: 10px;
     border-radius: 10px;
+    max-width: 75vw;
+    overflow-x: auto;
+    white-space: pre;
+    display: inline-block;
 }
 
 pre {
