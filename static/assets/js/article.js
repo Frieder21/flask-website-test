@@ -34,7 +34,7 @@ function fetchAndRenderArticle(nameOrNumberOrId) {
             } else {
                 // If the article was not found, display an error message
                 articleContainer.innerHTML =
-                    "Error: Article not found. Please check the name, number, or ID and try again.";
+                    "Error: Article not found. Please check the name, number, or ID and try again. or return to <a href='/'>main page</a>";
                 container.appendChild(articleContainer);
             }
         });

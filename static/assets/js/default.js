@@ -39,9 +39,13 @@ function fetchAndRenderArticle(nameOrNumberOrId) {
             }
         });
 }
+async function fetchAndRenderMultipleArticles(nameOrNumberOrId_list) {
+    for (let i = 0; i < nameOrNumberOrId_list.length; i++) {
+        await fetchAndRenderArticle(nameOrNumberOrId_list[i]);
+    }
+}
 
 // Call the fetchAndRenderArticle() function when the page is completely loaded
 window.onload = function() {
-    fetchAndRenderArticle(3);
-    fetchAndRenderArticle(2);
+    fetchAndRenderMultipleArticles([2, 3])
 };
