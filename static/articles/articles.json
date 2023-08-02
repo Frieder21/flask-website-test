@@ -54,5 +54,13 @@
     "id": "27072023-webserver",
     "date": "2023-07-27",
     "type": "bigger_project"
+  },
+  {
+    "name": "privacy",
+    "url": "privacy.md",
+    "number": 8,
+    "id": "02082023-privacy",
+    "date": "2023-08-02",
+    "type": "article"
   }
 ]

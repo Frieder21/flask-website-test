@@ -133,6 +133,8 @@ nav {
     transform: translate(-50%, 0);
     left: 50%;
     color: var(--my-soft-white);
+    height: 3vh;
+    text-align: center;
 }
 
 #footer:hover #itemtext {
@@ -177,7 +179,7 @@ div#content>div {
 }
 @media screen and (min-width: 801px) {
     div#content>div {
-        margin: 0 8vw 20vh;
+        margin: 0 8vw 8vh;
     }
 }
 
