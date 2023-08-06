@@ -19,6 +19,10 @@ def article():
 def blog():
     return render_template("blog.html")
 
+@app.route("/googlee5e00380f3d25861.html")
+def google():
+    return render_template("googlee5e00380f3d25861.html")
+
 if __name__ == '__main__':
     app.run()
 
