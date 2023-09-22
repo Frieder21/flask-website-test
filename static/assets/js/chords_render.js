@@ -44,9 +44,7 @@ class MarkdownChordsJS{
             outputText += lines[line];
             outputText += "\n";
         }
-        console.log(outputText);
         outputText = ["<p>",outputText.replaceAll("\n", "</p><p>"),"</p>"].join("");
-        console.log(outputText);
         if (element != null) {
             element.innerHTML = outputText;
             element.style.fontSize = config.fontsize;
