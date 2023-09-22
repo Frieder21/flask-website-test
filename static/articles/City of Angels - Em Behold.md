@@ -15,7 +15,7 @@ Don't know [A]why you let them [E]in
 [C#m]We used to talk about the fakers in LA
 [G#]But now you're one of 'em and damn it hurts to say
 [A]I should have seen it comin' from a mile [E]away,
-a mile []away
+a mile [idk]away
 [C#m]You always wanted to take before you give
 [G#]But what's the fun of it
 I don't know how you [A]live with yourself
@@ -43,7 +43,7 @@ May be [E]loved, but you're lonely as [G#]hell, oh
 [C#m]We used to talk about the fakers in LA
 [G#]But now you're one of 'em, I guess you got your way
 [A]I bet you're tired of all the games you had to [E]play,
-you had to []play
+you had to [idk]play
 [C#m]You always wanted to take before you give
 [G#]But what's the fun of it
 I don't know how you [A]live

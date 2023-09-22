@@ -27,7 +27,7 @@ class MarkdownChordsJS{
             let match;
             let slicePart = []
             let length = 0;
-            outputText += "<div class='chord'>";
+            outputText += "<p class='chord'>";
             while ((match = regex.exec(lines[line])) !== null) {
                 if (slicePart.length == 0) {
                     outputText += " ".repeat(match.index) + match[0].replace(config.chordStart,"").replace(config.chordEnd,"");
@@ -37,7 +37,7 @@ class MarkdownChordsJS{
                 slicePart.push(match[0]);
                 length += match[0].length;
             }
-            outputText += "</div>\n";
+            outputText += "</p>\n";
             for (const part in slicePart) {
                 lines[line] = lines[line].replace(slicePart[part], "");
             }
@@ -63,6 +63,4 @@ class MarkdownChordsJS{
 }
 
 const MDCHORDSJS = new MarkdownChordsJS();
-
-// Attach the instance to the window object
-window.myInstance = MDCHORDSJS;
+window.MDCHORDSJS = MDCHORDSJS;
