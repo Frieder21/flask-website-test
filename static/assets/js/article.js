@@ -26,10 +26,23 @@ function fetchAndRenderArticle(nameOrNumberOrId) {
                 fetch("/static/articles/" + article.url)
                     .then(response => response.text())
                     .then(text => {
-                        const converter = new showdown.Converter({tables: true});
-                        const html = converter.makeHtml(text);
+                        const md = window.markdownit({
+
+                        });
+                        const html = md.render(text);
                         articleContainer.innerHTML = html;
                         container.appendChild(articleContainer);
+
+                        for (let i = 0; i < document.getElementsByClassName("language-music-abc").length; i++) {
+                            var abc = String(document.getElementsByClassName("language-music-abc")[i].innerText.replace(/\r?\n/g, " \n "));
+                            console.log(abc);
+                            ABCJS.renderAbc(e=document.getElementsByClassName("language-music-abc")[i].parentElement, t=abc);
+                        }
+                        for (let i = 0; i < document.getElementsByClassName("language-song").length; i++) {
+                            var song = String(document.getElementsByClassName("language-song")[i].innerText.replace(/\r?\n/g, " \n "));
+                            console.log(song);
+                            MDCHORDSJS.renderChord(element=document.getElementsByClassName("language-song")[i].parentElement, mdText=song);
+                        }
                     });
             } else {
                 // If the article was not found, display an error message

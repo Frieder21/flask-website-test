@@ -296,11 +296,23 @@ code {
 }
 
 pre {
-    font-family: B612MonoRegular, sans-serif;
+    font-family: B612MonoRegular, sans-serif !important;
     font-size: 1.5vh;
     font-weight: 300;
     background-color: var(--my-light-grey);
     -webkit-border-radius: 10px;
     border-radius: 10px;
     padding: 0.5em;
+}
+pre p {
+    font-family: B612MonoRegular, sans-serif !important;
+    font-size: 1.5vh;
+    font-weight: 300;
+}
+
+pre .chord {
+    font-family: B612MonoRegular, sans-serif !important;
+    font-size: 1.5vh;
+    font-weight: 300;
+    color: var(--my-some-pink) !important;
 }

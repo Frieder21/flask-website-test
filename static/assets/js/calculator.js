@@ -18,7 +18,7 @@ const buttonDivide = document.createElement("button");
 const buttonEquals = document.createElement("button");
 const buttonClear = document.createElement("button");
 const output = document.createElement("div");
-const outputText = document.createElement("p");
+let outputText = document.createElement("p");
 const outputHistory = document.createElement("p");
 
 button1.innerHTML = "1";
