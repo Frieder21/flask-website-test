@@ -32,7 +32,7 @@ class MarkdownChordsJS{
                 if (slicePart.length == 0) {
                     outputText += " ".repeat(match.index) + match[0].replace(config.chordStart,"").replace(config.chordEnd,"");
                 } else {
-                    outputText += " ".repeat(match.index-length+19-outputText.split("\n").splice(-1)[0].length) + match[0].replace(config.chordStart,"").replace(config.chordEnd,"")
+                    outputText += " ".repeat(match.index-length+17-outputText.split("\n").splice(-1)[0].length) + match[0].replace(config.chordStart,"").replace(config.chordEnd,"")
                 }
                 slicePart.push(match[0]);
                 length += match[0].length;
@@ -54,10 +54,7 @@ class MarkdownChordsJS{
             return outputText;
         }
     }
-    useRegex(input) {
-        let regex = /\[.*\]/g;
-        return regex.test(input);
-}
+
 
 
 }

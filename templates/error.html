@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ "Error" + error}}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="static/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="static/assets/css/color-scheme.css">
+    <link rel="stylesheet" href="static/assets/css/default-style.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/assets/icons/F.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/icons/F32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="static/assets/icons/F180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/assets/icons/F192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="static/assets/icons/F512.png">
+</head>
+<body>
+<nav id="navbar">
+    <table id="items">
+        <tr>
+            <td>
+                <a href="/">
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="static/assets/icons/Logo-frieda-Upscale.png" alt="Frieda-Univers Logo">
+                            </td>
+                            <td>
+                                <h1>Frieda-Univers</h1>
+                            </td>
+                        </tr>
+                    </table>
+                    </a>
+            </td>
+            <td>
+                <a href="/">
+                    <h2>Error</h2>
+                </a>
+            </td>
+        </tr>
+    </table>
+</nav>
+<div id="content">
+    <div id="error">
+        <img src="static/assets/icons/Logo-frieda-Upscale-sad.png">
+        <h1>{{ "Error " + error }}</h1>
+        <p>{{ error_message }}</p>
+    </div>
+</div>
+<footer id="footer">
+    <img id="updownarrow" src="static/assets/icons/down-arrow.png"/>
+    <table id="itemtext">
+        <tr>
+            <td>
+                <a href="article?article=privacy">privacy</a>
+            </td>
+            <td>
+                <a href="article?article=webserver">Hosting</a>
+            </td>
+        </tr>
+    </table>
+    <table id="itemicon">
+        <tr>
+            <td>
+                <a href="https://discord.gg/jR8P3wsASS">
+                    <img src="static/assets/icons/discord.png">
+                </a>
+            </td>
+            <td>
+                <a href="https://github.com/Frieder21">
+                    <img src="static/assets/icons/github.png">
+                </a>
+            </td>
+            <td>
+                <a href="https://www.reddit.com/user/leonie_UwU/">
+                    <img src="static/assets/icons/reddit.png">
+                </a>
+            </td>
+        </tr>
+    </table>
+    <p id="copyright">Copyright&copy; 2023 frieda-univers</p>
+</footer>
+</body>
+</html>
