@@ -100,7 +100,7 @@ def pc():
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         import socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        sock.settimeout(1)
+        sock.settimeout(2)
         response = sock.connect_ex(('10.79.21.34', 3389))
         print(response)
         if response == 0:
@@ -125,7 +125,7 @@ def turnon():
         return redirect(url_for('login'))
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         os.system("/usr/bin/python3 /home/frieda/on.py")
-        return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
+        return redirect(url_for('redirectinsecounds', time=30, redirect_to="pc"))
     return redirect(url_for('login'))
 
 @app.route("/turnoff", methods=['GET', 'POST'])
@@ -139,7 +139,7 @@ def turnoff():
         return redirect(url_for('login'))
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         os.system("/usr/bin/python3 /home/frieda/off.py")
-        return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
+        return redirect(url_for('redirectinsecounds', time=30, redirect_to="pc"))
     return redirect(url_for('login'))
 
 @app.route("/redirectinsecounds", methods=['GET', 'POST'])
