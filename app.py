@@ -6,7 +6,13 @@ import os
 
 app = Flask(__name__)
 
-
+def read_key():
+    try:
+        with open("hashed-key.json", "r") as f:
+            login_key = f.read()
+    except:
+        login_key = ""
+    return login_key
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -61,7 +67,7 @@ def error():
 
 @app.route("/login")
 def login():
-    global login_key
+    login_key = read_key()
     try:
         login_key_cookie = request.cookies.get('login_key')
         if login_key_cookie == None:
@@ -74,7 +80,9 @@ def login():
 
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
-    global login_key
+    login_key = read_key()
+    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
+        return render_template("pc.html")
     username = request.form['username']
     password = request.form['password']
     if username == "frieda" and hashlib.sha256(bytes(password, "utf-8")).hexdigest() == "33de617ec0e939fdab465dd97d2afa4bca62fe153c18e927c86c4dd015d46484":
@@ -90,7 +98,7 @@ def handle_data():
         return redirect(url_for('login'))
 @app.route("/pc")
 def pc():
-    global login_key
+    login_key = read_key()
     try:
         login_key_cookie = request.cookies.get('login_key')
         if login_key_cookie == None:
@@ -116,7 +124,7 @@ def pc():
 
 @app.route("/turnon", methods=['GET', 'POST'])
 def turnon():
-    global login_key
+    login_key = read_key()
     try:
         login_key_cookie = request.cookies.get('login_key')
         if login_key_cookie == None:
@@ -130,7 +138,7 @@ def turnon():
 
 @app.route("/turnoff", methods=['GET', 'POST'])
 def turnoff():
-    global login_key
+    login_key = read_key()
     try:
         login_key_cookie = request.cookies.get('login_key')
         if login_key_cookie == None:
@@ -158,15 +166,5 @@ def redirectinsecounds():
     return render_template("redirectinsecounds.html", t=t, url=redirect_url)
 
 if __name__ == '__main__':
-    global login_key
-    with open("hashed-key.json", "r") as f:
-        login_key = f.read()
-    try:
-        login_key = str(login_key)
-        if login_key is None:
-            login_key = ""
-    except:
-        login_key = ""
-    print(login_key)
     app.run()
 
