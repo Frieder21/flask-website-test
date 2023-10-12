@@ -64,6 +64,8 @@ def login():
     global login_key
     try:
         login_key_cookie = request.cookies.get('login_key')
+        if login_key_cookie == None:
+            return render_template("login.html")
     except:
         return render_template("login.html")
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
@@ -91,8 +93,10 @@ def pc():
     global login_key
     try:
         login_key_cookie = request.cookies.get('login_key')
+        if login_key_cookie == None:
+            return redirect(url_for('login'))
     except:
-        return render_template("login.html")
+        return redirect(url_for('login'))
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         import socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -115,8 +119,10 @@ def turnon():
     global login_key
     try:
         login_key_cookie = request.cookies.get('login_key')
+        if login_key_cookie == None:
+            return redirect(url_for('login'))
     except:
-        return render_template("login.html")
+        return redirect(url_for('login'))
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         os.system("/usr/bin/python3 /home/frieda/on.py")
         return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
@@ -127,8 +133,10 @@ def turnoff():
     global login_key
     try:
         login_key_cookie = request.cookies.get('login_key')
+        if login_key_cookie == None:
+            return redirect(url_for('login'))
     except:
-        return render_template("login.html")
+        return redirect(url_for('login'))
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         os.system("/usr/bin/python3 /home/frieda/off.py")
         return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
@@ -153,5 +161,9 @@ if __name__ == '__main__':
     global login_key
     with open("hashed-key.json", "r") as f:
         login_key = f.read()
+    try:
+        login_key = login_key
+    except:
+        login_key = ""
     app.run()
 
