@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting to {{ url }} in {{ t }} seconds</title>
+    <link rel="stylesheet" href="static/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="static/assets/css/color-scheme.css">
+    <link rel="stylesheet" href="static/assets/css/login.css">
+    <script>
+        var url = "{{ url }}";
+        var seconds = "{{ t }}";
+        var timer = setInterval(function() {
+            seconds--;
+            document.getElementById("time").innerHTML = seconds.toString();
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = url;
+            }
+        }, 1000);
+    </script>
+</head>
+<body>
+    <div>
+        <h1>Redirecting...</h1>
+        <h2>Redirecting to {{ url }} in <custom id="time">{{ t }}</custom> seconds</h2>
+    </div>
+</body>
+</html>

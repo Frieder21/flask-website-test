@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="static/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="static/assets/css/color-scheme.css">
+    <link rel="stylesheet" href="static/assets/css/login.css">
+</head>
+<body>
+    <div>
+        <h1>Log in</h1>
+        <form action="{{ url_for('handle_data') }}" method="post">
+            <input type="text" name="username" id="username" placeholder="Username">
+            <br>
+            <input type="password" name="password" id="password" placeholder="Password">
+            <br>
+            <input type="submit" value="Log in">
+        </form>
+    </div>
+</body>
+</html>

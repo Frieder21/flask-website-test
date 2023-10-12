@@ -1,4 +1,7 @@
-from flask import Flask, render_template, redirect, send_file, request, url_for
+import hashlib
+import secrets
+
+from flask import Flask, render_template, redirect, send_file, request, url_for, make_response
 import os
 
 app = Flask(__name__)
@@ -56,6 +59,87 @@ def error():
         return render_template("error.html", error=error, str=str, error_message=error_message[error])
     return render_template("error.html", error=error, str=str, error_message="No error message specified")
 
+@app.route("/login")
+def login():
+    global login_key
+    login_key_cookie = request.cookies.get('login_key')
+    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
+        return redirect(url_for('pc'))
+    return render_template("login.html")
+
+@app.route('/handle_data', methods=['POST'])
+def handle_data():
+    global login_key
+    username = request.form['username']
+    password = request.form['password']
+    if username == "frieda" and hashlib.sha256(bytes(password, "utf-8")).hexdigest() == "33de617ec0e939fdab465dd97d2afa4bca62fe153c18e927c86c4dd015d46484":
+        login_key = secrets.token_hex(256)
+        resp = make_response(redirect(url_for('pc')))
+        resp.set_cookie("login_key", login_key, max_age=60*60*24, secure=True, httponly=True)
+        login_key = hashlib.sha256(bytes(login_key, "utf-8")).hexdigest()
+        with open("hashed-key.json", "w") as f:
+            f.write(login_key)
+        print(login_key)
+        return resp
+    else:
+        return redirect(url_for('login'))
+@app.route("/pc")
+def pc():
+    global login_key
+    login_key_cookie = request.cookies.get('login_key')
+    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
+        import socket
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        sock.settimeout(1)
+        response = sock.connect_ex(('10.79.21.34', 3389))
+        print(response)
+        if response == 0:
+            title = "power is on"
+            button = "poweroff"
+            action = "turnoff"
+        else:
+            title = "power is off"
+            button = "poweron"
+            action = "turnon"
+        return render_template("pc.html" , title=title, button=button, action=action)
+    return redirect(url_for('login'))
+
+@app.route("/turnon", methods=['GET', 'POST'])
+def turnon():
+    global login_key
+    login_key_cookie = request.cookies.get('login_key')
+    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
+        os.system("/usr/bin/python3 /home/frieda/on.py")
+        return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
+    return redirect(url_for('login'))
+
+@app.route("/turnoff", methods=['GET', 'POST'])
+def turnoff():
+    global login_key
+    login_key_cookie = request.cookies.get('login_key')
+    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
+        os.system("/usr/bin/python3 /home/frieda/off.py")
+        return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
+    return redirect(url_for('login'))
+
+@app.route("/redirectinsecounds", methods=['GET', 'POST'])
+def redirectinsecounds():
+    if request.method == 'POST':
+        t = request.form['time']
+        redirect_to = request.form['redirect_to']
+    elif request.method == 'GET':
+        t = request.args.get('time')
+        redirect_to = request.args.get('redirect_to')
+    try:
+        t = int(t)
+        redirect_url = url_for(redirect_to)
+    except:
+        return redirect(url_for('error', error="Invalid redirect"))
+    return render_template("redirectinsecounds.html", t=t, url=redirect_url)
+
 if __name__ == '__main__':
+    global login_key
+    with open("hashed-key.json", "r") as f:
+        login_key = f.read()
     app.run()
 

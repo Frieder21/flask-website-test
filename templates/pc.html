@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="static/assets/fonts/fonts.css">
+    <link rel="stylesheet" href="static/assets/css/color-scheme.css">
+    <link rel="stylesheet" href="static/assets/css/login.css">
+</head>
+<body>
+    <div>
+    <h1>{{ title }}</h1>
+        <form action="{{ url_for(action) }}" method="post">
+            <input type="submit" value="{{ button }}">
+        </form>
+    </div>
+</body>
+</html>
