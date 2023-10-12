@@ -162,7 +162,9 @@ if __name__ == '__main__':
     with open("hashed-key.json", "r") as f:
         login_key = f.read()
     try:
-        login_key = login_key
+        login_key = str(login_key)
+        if login_key is None:
+            login_key = ""
     except:
         login_key = ""
     app.run()
