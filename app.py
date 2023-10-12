@@ -62,7 +62,10 @@ def error():
 @app.route("/login")
 def login():
     global login_key
-    login_key_cookie = request.cookies.get('login_key')
+    try:
+        login_key_cookie = request.cookies.get('login_key')
+    except:
+        render_template("login.html")
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         return redirect(url_for('pc'))
     return render_template("login.html")
@@ -86,7 +89,10 @@ def handle_data():
 @app.route("/pc")
 def pc():
     global login_key
-    login_key_cookie = request.cookies.get('login_key')
+    try:
+        login_key_cookie = request.cookies.get('login_key')
+    except:
+        render_template("login.html")
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         import socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -107,7 +113,10 @@ def pc():
 @app.route("/turnon", methods=['GET', 'POST'])
 def turnon():
     global login_key
-    login_key_cookie = request.cookies.get('login_key')
+    try:
+        login_key_cookie = request.cookies.get('login_key')
+    except:
+        render_template("login.html")
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         os.system("/usr/bin/python3 /home/frieda/on.py")
         return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
@@ -116,7 +125,10 @@ def turnon():
 @app.route("/turnoff", methods=['GET', 'POST'])
 def turnoff():
     global login_key
-    login_key_cookie = request.cookies.get('login_key')
+    try:
+        login_key_cookie = request.cookies.get('login_key')
+    except:
+        render_template("login.html")
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         os.system("/usr/bin/python3 /home/frieda/off.py")
         return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
