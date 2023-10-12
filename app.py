@@ -167,5 +167,6 @@ if __name__ == '__main__':
             login_key = ""
     except:
         login_key = ""
+    print(login_key)
     app.run()
 
