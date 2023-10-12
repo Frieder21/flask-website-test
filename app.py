@@ -65,7 +65,7 @@ def login():
     try:
         login_key_cookie = request.cookies.get('login_key')
     except:
-        render_template("login.html")
+        return render_template("login.html")
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         return redirect(url_for('pc'))
     return render_template("login.html")
@@ -92,7 +92,7 @@ def pc():
     try:
         login_key_cookie = request.cookies.get('login_key')
     except:
-        render_template("login.html")
+        return render_template("login.html")
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         import socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -116,7 +116,7 @@ def turnon():
     try:
         login_key_cookie = request.cookies.get('login_key')
     except:
-        render_template("login.html")
+        return render_template("login.html")
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         os.system("/usr/bin/python3 /home/frieda/on.py")
         return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
@@ -128,7 +128,7 @@ def turnoff():
     try:
         login_key_cookie = request.cookies.get('login_key')
     except:
-        render_template("login.html")
+        return render_template("login.html")
     if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
         os.system("/usr/bin/python3 /home/frieda/off.py")
         return redirect(url_for('redirectinsecounds', time=5, redirect_to="pc"))
