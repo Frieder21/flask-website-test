@@ -80,9 +80,6 @@ def login():
 
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
-    login_key = read_key()
-    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
-        return render_template("pc.html")
     username = request.form['username']
     password = request.form['password']
     if username == "frieda" and hashlib.sha256(bytes(password, "utf-8")).hexdigest() == "33de617ec0e939fdab465dd97d2afa4bca62fe153c18e927c86c4dd015d46484":
