@@ -78,6 +78,11 @@ def login():
         return redirect(url_for('pc'))
     return render_template("login.html")
 
+@app.route('/logout')
+def logout():
+      resp = make_response(redirect(url_for('login')))
+      resp.set_cookie("login_key", "", max_age=0, secure=True, httponly=True)
+
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
     username = request.form['username']
