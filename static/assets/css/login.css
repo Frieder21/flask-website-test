@@ -25,23 +25,27 @@ input {
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: center;
-    @media screen and (max-width: 800px) {
+
+}
+@media screen and (max-width: 1000px) {
+    h1 {
+        text-align: center;
+        font-size: 8vw;
+    }
+    input {
         font-size: 5vw;
     }
-    @media screen and (min-width: 801px) {
+}
+@media screen and (min-width: 1001px) {
+    h1 {
+        text-align: center;
+        font-size: 4vw;
+    }
+    input {
         font-size: 2vw;
     }
 }
-h1 {
-    text-align: center;
 
-    @media screen and (max-width: 800px) {
-        font-size: 8vw;
-    }
-    @media screen and (min-width: 801px) {
-        font-size: 4vw;
-    }
-}
 input[type=submit] {
     position: relative;
     display: block;
