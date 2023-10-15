@@ -1,18 +1,51 @@
 import hashlib
 import secrets
-
+import json
+import time
 from flask import Flask, render_template, redirect, send_file, request, url_for, make_response
 import os
 
 app = Flask(__name__)
 
-def read_key():
+def read_keys()->list:
     try:
         with open("hashed-key.json", "r") as f:
-            login_key = f.read()
+            login_keys = json.load(f)
     except:
-        login_key = ""
+        login_keys = []
+    return login_keys
+
+def delete_exspired_keys():
+    login_keys = read_keys()
+    for key in login_keys:
+        if key["time"] < time.time():
+            login_keys.remove(key)
+    with open("hashed-key.json", "w") as f:
+        json.dump(login_keys, f)
+
+def check_if_key(login_key:str) -> bool:
+    delete_exspired_keys()
+    login_keys = read_keys()
+    login_key = hashlib.sha256(bytes(login_key, "utf-8")).hexdigest()
+    for key in login_keys:
+        if key["key"] == login_key:
+            return True
+    return False
+
+def create_key() -> str:
+    login_key = secrets.token_hex(256)
+    login_keys = read_keys()
+    login_keys.append({"key": hashlib.sha256(bytes(login_key, "utf-8")).hexdigest(), "time": time.time()+60*60*24})
+    with open("hashed-key.json", "w") as f:
+        json.dump(login_keys, f)
     return login_key
+
+def delete_key(login_key:str):
+    login_keys = read_keys()
+    login_keys = [key for key in login_keys if key["key"] != hashlib.sha256(bytes(login_key, "utf-8")).hexdigest()]
+    with open("hashed-key.json", "w") as f:
+        json.dump(login_keys, f)
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -67,52 +100,54 @@ def error():
 
 @app.route("/login")
 def login():
-    login_key = read_key()
     try:
         login_key_cookie = request.cookies.get('login_key')
         if login_key_cookie == None:
             return render_template("login.html")
     except:
         return render_template("login.html")
-    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
+    if check_if_key(login_key_cookie):
         return redirect(url_for('pc'))
     return render_template("login.html")
 
 @app.route('/logout')
 def logout():
-      resp = make_response(redirect(url_for('login')))
-      resp.set_cookie("login_key", "", max_age=0, secure=True, httponly=True)
+    try:
+        login_key_cookie = request.cookies.get('login_key')
+        if login_key_cookie == None:
+            return render_template("login.html")
+    except:
+        return render_template("login.html")
+    if check_if_key(login_key_cookie):
+        delete_key(login_key_cookie)
+        resp = make_response(redirect(url_for('login')))
+        resp.set_cookie("login_key", "", max_age=0, secure=True, httponly=True)
+        return resp
 
 @app.route('/handle_data', methods=['POST'])
 def handle_data():
     username = request.form['username']
     password = request.form['password']
     if username == "frieda" and hashlib.sha256(bytes(password, "utf-8")).hexdigest() == "33de617ec0e939fdab465dd97d2afa4bca62fe153c18e927c86c4dd015d46484":
-        login_key = secrets.token_hex(256)
+        login_key = create_key()
         resp = make_response(redirect(url_for('pc')))
         resp.set_cookie("login_key", login_key, max_age=60*60*24, secure=True, httponly=True)
-        login_key = hashlib.sha256(bytes(login_key, "utf-8")).hexdigest()
-        with open("hashed-key.json", "w") as f:
-            f.write(login_key)
-        print(login_key)
         return resp
     else:
         return redirect(url_for('login'))
 @app.route("/pc")
 def pc():
-    login_key = read_key()
     try:
         login_key_cookie = request.cookies.get('login_key')
         if login_key_cookie == None:
             return redirect(url_for('login'))
     except:
         return redirect(url_for('login'))
-    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
+    if check_if_key(login_key_cookie):
         import socket
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.settimeout(2)
         response = sock.connect_ex(('10.79.21.34', 3389))
-        print(response)
         if response == 0:
             title = "power is on"
             button = "poweroff"
@@ -126,28 +161,26 @@ def pc():
 
 @app.route("/turnon", methods=['GET', 'POST'])
 def turnon():
-    login_key = read_key()
     try:
         login_key_cookie = request.cookies.get('login_key')
         if login_key_cookie == None:
             return redirect(url_for('login'))
     except:
         return redirect(url_for('login'))
-    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
+    if check_if_key(login_key_cookie):
         os.system("/usr/bin/python3 /home/frieda/on.py")
         return redirect(url_for('redirectinsecounds', time=30, redirect_to="pc"))
     return redirect(url_for('login'))
 
 @app.route("/turnoff", methods=['GET', 'POST'])
 def turnoff():
-    login_key = read_key()
     try:
         login_key_cookie = request.cookies.get('login_key')
         if login_key_cookie == None:
             return redirect(url_for('login'))
     except:
         return redirect(url_for('login'))
-    if login_key == hashlib.sha256(bytes(login_key_cookie, "utf-8")).hexdigest():
+    if check_if_key(login_key_cookie):
         os.system("/usr/bin/python3 /home/frieda/off.py")
         return redirect(url_for('redirectinsecounds', time=30, redirect_to="pc"))
     return redirect(url_for('login'))

@@ -15,9 +15,10 @@
 <body>
     <div>
     <h1>{{ title }}</h1>
-        <form action="{{ url_for(action) }}" method="post">
-            <input type="submit" value="{{ button }}">
-        </form>
+    <form action="{{ url_for(action) }}" method="post">
+        <input type="submit" value="{{ button }}">
+    </form>
+    <button onclick="window.location.href='{{ url_for('logout') }}'">logout</button>
     </div>
 </body>
 </html>
