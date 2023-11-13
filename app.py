@@ -128,7 +128,7 @@ def logout():
 def handle_data():
     username = request.form['username']
     password = request.form['password']
-    if username == "frieda" and hashlib.sha256(bytes(password, "utf-8")).hexdigest() == "33de617ec0e939fdab465dd97d2afa4bca62fe153c18e927c86c4dd015d46484":
+    if username == "frieda" and hashlib.sha256(bytes(password, "utf-8")).hexdigest() == "e9ac26f4690425121bff5ef0e8f951dd14059656a2bd768aa04e5af865a3053f":
         login_key = create_key()
         resp = make_response(redirect(url_for('pc')))
         resp.set_cookie("login_key", login_key, max_age=60*60*24, secure=True, httponly=True)
