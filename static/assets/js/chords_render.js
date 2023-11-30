@@ -1,3 +1,32 @@
+function loadJS(FILE_URL, async = true) {
+  let scriptEle = document.createElement("script");
+
+  scriptEle.setAttribute("src", FILE_URL);
+  scriptEle.setAttribute("type", "text/javascript");
+  scriptEle.setAttribute("async", async);
+
+  document.body.appendChild(scriptEle);
+  // success event
+  scriptEle.addEventListener("load", () => {
+    console.log("File loaded");
+    var noSleep = new NoSleep();
+    var toggleEl = document.getElementById("DisplayOnOffSwitch");
+    toggleEl.addEventListener('click', function () {
+        if (document.getElementById("DisplayOnOffSwitch").checked) {
+            noSleep.enable(); // keep the screen on!
+        } else {
+            noSleep.disable(); // let the screen turn off.
+        }
+    }, false);
+
+  });
+   // error event
+  scriptEle.addEventListener("error", (ev) => {
+    console.log("Error on loading file", ev);
+    return false
+  });
+}
+
 class MarkdownChordsJS{
     constructor() {
         this.chord = null;
@@ -20,7 +49,13 @@ class MarkdownChordsJS{
         }
         const lines = mdText.split('\n');
         // for every line in the mdtext, for every config.chordStart in line return charakter in line//
-        let outputText = "";
+        if (element == null || (document.getElementById("DisplayOnOffSwitch") === undefined)){
+            var outputText = "";
+            console.log("DisplayOnOffSwitch is undefined");
+        } else {
+            var outputText = "<label class='switch'><input type='checkbox' id='DisplayOnOffSwitch'><span class='slider round'></span></label>\n"
+            console.log("DisplayOnOffSwitch is defined");
+        }
         for (const line in lines) {
             //regex to find chords in line "\[[^\[\]]*\]"//
             const regex = new RegExp(`\\${config.chordStart}${config.chordStart}^\\${config.chordStart}\\${config.chordEnd}${config.chordEnd}*\\${config.chordEnd}`, 'g');
@@ -49,6 +84,7 @@ class MarkdownChordsJS{
             element.innerHTML = outputText;
             element.style.fontSize = config.fontsize;
             element.style.lineHeight = config.lineSpace;
+            loadJS("static/assets/js/NoSleep.js", false)
         } else
         {
             return outputText;
