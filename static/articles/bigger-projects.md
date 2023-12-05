@@ -2,6 +2,10 @@
 
 blablabla here you can find my latest "bigger" projects.
 
+## washing machine/tumble dryer
+
+[![washing_machine.jpg](../static/assets/images/wmtd.png)](article?article=wmtd)
+
 ## [while alive](article?article=while%20alive)
 
 [![while_(alive)-new.png](../static/assets/images/while_(alive)-new.png)](article?article=while%20alive)

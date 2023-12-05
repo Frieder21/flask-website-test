@@ -6,6 +6,8 @@ sometimes I'm really bored and in the next moment (15h later) there is a new run
 this is a website you could host on your own for sharing people in your dorm that the washing machine or the tumble dryer is/n't ready to use.
 ## What was the best part?
 I liked to design the washing machine and the tumble dryer. I also liked to create the backend.
+## Do you want me to host it for you?
+Yes, I could host it for you but I'm broke, so I would be happy if you donate a small amount. Just massage me on [Matrix: @frieda:catgirl.cloud](https://matrix.to/#/@frieda:catgirl.cloud), [Email](mailto:feedo@posteo.de) or Discord: friedaaaaaaa.
 ## How to install it on a raspberry pi the way I did
 ### Install the raspberry pi
 There are a lot of tutorials out there. I did it without one. I installed [ubuntu server](https://ubuntu.com/download/raspberry-pi) on my raspberry pi 4, but it should work on most debian based systems. While installing it I enabled ssh.
